@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.uas_pam_thoriq.repositori.RepositoriSensorTanaman
 import com.example.uas_pam_thoriq.ui.halaman.SensorTanamanEditDestination
 import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 class SensorTanamanEditViewModel(
@@ -18,11 +19,11 @@ class SensorTanamanEditViewModel(
     var SensorTanamanUiState by mutableStateOf(UIStateSensorTanaman())
         private set
 
-    private val itemId: Int = checkNotNull(savedStateHandle[SensorTanamanEditDestination.SensorTanamanIdArg])
+    private val SensorTanamanId: Int = checkNotNull(savedStateHandle[SensorTanamanEditDestination.SensorTanamanIdArg])
 
     init {
         viewModelScope.launch {
-            SensorTanamanUiState = repositoriSensorTanaman.getSensorTanamanStream(itemId)
+            SensorTanamanUiState = repositoriSensorTanaman.getSensorTanamanStream(SensorTanamanId)
                 .filterNotNull()
                 .first()
                 .toUiStateSensorTanaman(true)

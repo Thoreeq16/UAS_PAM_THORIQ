@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.uas_pam_thoriq.repositori.RepositoriTanaman
 import com.example.uas_pam_thoriq.ui.halaman.TanamanEditDestination
 import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 class TanamanEditViewModel(
@@ -18,11 +19,11 @@ class TanamanEditViewModel(
     var TanamanUiState by mutableStateOf(UIStateTanaman())
         private set
 
-    private val itemId: Int = checkNotNull(savedStateHandle[TanamanEditDestination.TanamanIdArg])
+    private val TanamanId: Int = checkNotNull(savedStateHandle[TanamanEditDestination.TanamanIdArg])
 
     init {
         viewModelScope.launch {
-            TanamanUiState = repositoriTanaman.getTanamanStream(itemId)
+            TanamanUiState = repositoriTanaman.getTanamanStream(TanamanId)
                 .filterNotNull()
                 .first()
                 .toUiStateTanaman(true)

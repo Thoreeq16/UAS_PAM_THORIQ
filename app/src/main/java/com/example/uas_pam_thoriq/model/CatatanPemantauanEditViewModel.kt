@@ -9,6 +9,7 @@ import androidx.lifecycle.viewModelScope
 import com.example.uas_pam_thoriq.repositori.RepositoriCatatanPemantauan
 import com.example.uas_pam_thoriq.ui.halaman.CatatanPemantauanEditDestination
 import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 class CatatanPemantauanEditViewModel(
@@ -18,11 +19,12 @@ class CatatanPemantauanEditViewModel(
     var CatatanPemantauanUiState by mutableStateOf(UIStateCatatanPemantauan())
         private set
 
-    private val itemId: Int = checkNotNull(savedStateHandle[CatatanPemantauanEditDestination.CatatanPemantauanIdArg])
+    private val CatatanPemantauanId: Int = checkNotNull(savedStateHandle[CatatanPemantauanEditDestination.CatatanPemantauanIdArg])
 
     init {
         viewModelScope.launch {
-            CatatanPemantauanUiState = repositoriCatatanPemantauan.getCatatanPemantauanStream(itemId)
+            CatatanPemantauanUiState = repositoriCatatanPemantauan.getCatatanPemantauanStream(CatatanPemantauanId)
+                .filterNotNull()
                 .filterNotNull()
                 .first()
                 .toUiStateCatatanPemantauan(true)
