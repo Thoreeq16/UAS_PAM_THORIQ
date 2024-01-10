@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">UAS_PAM_THORIQ</string>
+    <string name="deskripsi_no_item">Tidak ada data tanaman. Tap + untuk menambah data</string>
+    <string name="entry_tanaman">Tambah Tanaman</string>
+    <string name="detail_tanaman">Detail Tanaman</string>
+    <string name="edit_tanaman">Edit Tanaman</string>
+    <string name="entry_sensor_tanaman">Tambah Tanaman</string>
+    <string name="detail_sensor_tanaman">Detail Tanaman</string>
+    <string name="edit_sensor_tanaman">Edit Tanaman</string>
+    <string name="entry_catatan_pemantauan">Tambah Tanaman</string>
+    <string name="detail_catatan_pemantauan">Detail Tanaman</string>
+    <string name="edit_catatan_pemantauan">Edit Tanaman</string>
+    <string name="btn_submit">Submit</string>
+    <string name="required_field">* required fields</string>
+    <string name="nmtanaman">Nama Tanaman:</string>
+    <string name="jnstanaman">Jenis Tanaman:</string>
+    <string name="loctanaman">Lokasi Tanaman:</string>
+    <string name="wkttanam">Waktu Tanam:</string>
+    <string name="desctanaman">Deskripsi Tanaman:</string>
+    <string name="locsensor">Lokasi Sensor:</string>
+    <string name="statustanaman">Status Tanaman:</string>
+    <string name="tglpemantau">Status Tanaman:</string>
+    <string name="kondisitnm">Kondisi Tanaman:</string>
+    <string name="keterangan">Keterangan Tanaman:</string>
+    <string name="yes">Ya</string>
+    <string name="no">Tidak</string>
+    <string name="delete">Hapus</string>
+    <string name="update">Edit</string>
+    <string name="attention">Perhatian</string>
+    <string name="back">Back</string>
+    <string name="tanya">Apakah anda yakin menghapus ini ?</string>
+</resources>
